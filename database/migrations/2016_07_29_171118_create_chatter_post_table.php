@@ -9,8 +9,8 @@ class CreateChatterPostTable extends Migration
     {
         Schema::create('chatter_post', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('chatter_discussion_id');
-            $table->bigInteger('user_id');
+            $table->bigInteger('chatter_discussion_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
             $table->text('body');
             $table->timestamps();
         });
