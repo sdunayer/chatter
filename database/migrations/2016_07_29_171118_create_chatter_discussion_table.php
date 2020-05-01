@@ -9,11 +9,11 @@ class CreateChatterDiscussionTable extends Migration
     {
         Schema::create('chatter_discussion', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('chatter_category_id')->default('1');
+            $table->bigInteger('chatter_category_id')->unsigned()->default('1');
             $table->string('title');
-            $table->bigInteger('user_id');
+            $table->bigInteger('user_id')->unsigned();
             $table->boolean('sticky')->default(false);
-            $table->bigInteger('views')->default('0');
+            $table->bigInteger('views')->unsigned()->default('0');
             $table->boolean('answered')->default(0);
             $table->timestamps();
         });
